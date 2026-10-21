@@ -6,6 +6,18 @@
    mono timing, kerb stripes and chequers. Club red is kept for the logo,
    race days and the highlighted sector; hi-vis amber still means "live".
    ========================================================================== */
+/* Semakin (Drizy Studio) for display type. It ships one weight with the
+   slant built in, so it is registered for every weight and for both styles:
+   the headings ask for italic 800, and this hands them the real letterforms
+   instead of a synthesised bold on top of a synthesised slant. */
+@font-face{
+  font-family:"Semakin";font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(../fonts/semakin-regular.otf) format("opentype");
+}
+@font-face{
+  font-family:"Semakin";font-style:italic;font-weight:100 900;font-display:swap;
+  src:url(../fonts/semakin-regular.otf) format("opentype");
+}
 /* Barlow is drawn about 7.5% narrower than Arial. Scaling the fallback to
    match means the late swap to the web font doesn't reflow the header. */
 @font-face{
@@ -46,7 +58,7 @@
   --kerb-v:repeating-linear-gradient(180deg,var(--pine) 0 22px,#fff 22px 44px);
   --chk:conic-gradient(var(--pine) 0 25%,#fff 0 50%,var(--pine) 0 75%,#fff 0) 0 0/10px 10px;
 
-  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --display:"Semakin","Archivo","Arial Narrow",system-ui,sans-serif;
   --body:"Barlow","Barlow Fallback",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
   --fs-hero:clamp(2.6rem,10.2vw,4.9rem);

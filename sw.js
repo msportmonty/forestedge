@@ -5,13 +5,13 @@
    something replaces the cache and one that did not leaves it alone. */
 'use strict';
 
-var CACHE = 'fekc-c850740edda0';
+var CACHE = 'fekc-294624220517';
 var SHELL = [
   "/",
   "index.html",
-  "assets/css/main.css?v=20261021",
-  "assets/css/fonts.css?v=20261021",
-  "assets/js/main.js?v=20261021",
+  "assets/css/main.css?v=20261021-2",
+  "assets/css/fonts.css?v=20261021-2",
+  "assets/js/main.js?v=20261021-2",
   "assets/img/logo-light.png",
   "assets/img/logo.png"
 ];      // must all cache, or the install fails
@@ -33,6 +33,7 @@ var REST  = [
   "site.webmanifest",
   "assets/img/logo.webp",
   "assets/img/favicon.png",
+  "assets/fonts/semakin-regular.otf",
   "assets/fonts/archivo-italic-700to800-latin.woff2",
   "assets/fonts/archivo-normal-400to800-latin.woff2",
   "assets/fonts/barlow-italic-400-latin.woff2",
