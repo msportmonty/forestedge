@@ -361,13 +361,19 @@ main>.sec:nth-child(even of .sec){background:var(--paper-2)}
   border-radius:var(--r);box-shadow:var(--shadow-sm);
   transition:border-color .2s,box-shadow .2s,transform .2s var(--ease);
 }
-.secbtn:hover,.secbtn[aria-pressed="true"]{border-left-color:var(--red-btn);box-shadow:var(--shadow);transform:translateX(3px)}
+/* the highlight follows data-active, which the map and the cards both set,
+   so hovering either one lights up the same sector in both places */
+.circuit[data-active="1"] .secbtn[data-s="1"],
+.circuit[data-active="2"] .secbtn[data-s="2"],
+.circuit[data-active="3"] .secbtn[data-s="3"]{border-left-color:var(--red-btn);box-shadow:var(--shadow);transform:translateX(3px)}
 .secbtn__n{
   font-family:var(--display);font-style:italic;font-weight:800;
   font-variation-settings:"wdth" 116,"wght" 800;
   font-size:2.2rem;line-height:.8;color:#5d6c63;transition:color .2s;
 }
-.secbtn:hover .secbtn__n,.secbtn[aria-pressed="true"] .secbtn__n{color:var(--red-btn)}
+.circuit[data-active="1"] .secbtn[data-s="1"] .secbtn__n,
+.circuit[data-active="2"] .secbtn[data-s="2"] .secbtn__n,
+.circuit[data-active="3"] .secbtn[data-s="3"] .secbtn__n{color:var(--red-btn)}
 .secbtn__b{display:grid;gap:.22rem}
 .secbtn strong{
   font-family:var(--display);font-style:italic;font-weight:700;color:var(--pine);
@@ -537,6 +543,18 @@ a.card:hover .card__go{color:var(--pine);gap:.65rem}
 .ev--off .ev__t{color:var(--red-btn)}
 .ev--past .ev__n{color:var(--mute);font-weight:600}
 .ev--past .ev__d{color:var(--mute)}
+.ev--past{background:var(--paper)}
+.mon .ev--past,.homecal .ev--past{margin-inline:-.6rem;padding-inline:.6rem}
+.ev__done{
+  display:inline-flex;align-items:center;gap:.3rem;margin-right:.5rem;padding:.14rem .5rem;border-radius:999px;
+  font:700 .72rem/1.3 var(--body);letter-spacing:.04em;text-transform:uppercase;
+  color:var(--ink-2);background:var(--paper-2);border:1px solid var(--line-2);
+}
+.ev__done::before{content:"";width:.7em;height:.38em;border:solid currentColor;border-width:0 0 2px 2px;transform:translateY(-.12em) rotate(-45deg)}
+
+.mon--done .mon__h{border-bottom-color:var(--line-2)}
+.mon__done{margin-left:auto}
+.homecal__end{padding:1rem 0;color:var(--mute)}
 .homecal{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:.3rem 1.2rem;box-shadow:var(--shadow-sm)}
 .homecal .ev:nth-of-type(n+7){display:none}
 .homecal .ev:nth-of-type(6){border-bottom:0}
@@ -674,7 +692,7 @@ a.card:hover .card__go{color:var(--pine);gap:.65rem}
 }
 .warn strong{color:var(--amber-txt)}
 
-/* ---------- footer: pine, with the original logo back on a dark ground ---------- */
+/* ---------- footer: pine, with the all-white logo ---------- */
 .ft{position:relative;background:var(--pine-2);color:var(--on-dark);padding-block:clamp(3.2rem,8vw,4.4rem) 1.6rem}
 .ft__top{display:grid;gap:2.4rem;padding-bottom:2.2rem}
 .ft__brand img{height:46px;width:auto;margin-bottom:1.2rem}
@@ -764,7 +782,9 @@ a.card:hover .card__go{color:var(--pine);gap:.65rem}
   .grid3{grid-template-columns:repeat(3,1fr)}
   .grid3--2{grid-template-columns:repeat(2,1fr)}
   .cards--3{grid-template-columns:repeat(3,1fr)}
-  .circuit{grid-template-columns:1.12fr .88fr;gap:2.6rem}
+  .circuit{grid-template-columns:1.12fr .88fr;gap:2.6rem;align-items:stretch}
+  .secs{grid-template-rows:repeat(3,1fr) auto;align-content:stretch}
+  .secs .recbar{margin-top:0}
   .ft__top{grid-template-columns:1fr 1.6fr;gap:3.5rem}
   .cal--2{grid-template-columns:repeat(2,1fr);gap:1.6rem}
   .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
@@ -793,7 +813,7 @@ a.card:hover .card__go{color:var(--pine);gap:.65rem}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .js .rv{opacity:1;transform:none}
   .draw{stroke-dashoffset:0;animation:none}
-  .secbtn:hover,.secbtn[aria-pressed="true"]{transform:none}
+  .circuit[data-active] .secbtn{transform:none}
   .circuit--anim .secn,.circuit--anim .trk-tick,
   .circuit--anim .trk-sf,.circuit--anim .circuit__cap{opacity:1;animation:none}
 }

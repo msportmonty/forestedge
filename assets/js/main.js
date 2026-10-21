@@ -289,11 +289,56 @@
 
   /* --------------------------------------------------- calendar: mark next */
   var cal = document.querySelector('[data-cal]');
+  var DAYS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  var MONS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
+  /* The home page list is baked in at build time, so by October it is a list
+     of meetings that have already happened. Rebuild it from the calendar:
+     the next six dates still to come this year, or a plain "season over". */
+  function buildHomeCal(today) {
+    if (!cal.classList.contains('homecal') || !EVENTS.length) return;
+    var year = today.getFullYear();
+    var up = [];
+    for (var i = 0; i < EVENTS.length && up.length < 6; i++) {
+      var ev = EVENTS[i];
+      var d = new Date(ev.iso + 'T00:00:00');
+      if (d >= today && d.getFullYear() === year) up.push({ ev: ev, d: d });
+    }
+    cal.textContent = '';
+    if (!up.length) {
+      var end = document.createElement('p');
+      end.className = 'homecal__end';
+      end.textContent = 'That is the ' + year + ' season done. Dates for ' + (year + 1) +
+        ' go on the calendar as soon as Motorsport UK confirms them.';
+      cal.appendChild(end);
+      return;
+    }
+    up.forEach(function (u) {
+      var row = document.createElement('div');
+      row.className = 'ev' + (u.ev.kind === 'race' ? ' ev--race' : '') + (u.ev.off ? ' ev--off' : '');
+      row.setAttribute('data-iso', u.ev.iso);
+      row.setAttribute('data-kind', u.ev.kind);
+      var dd = document.createElement('span');
+      dd.className = 'ev__d';
+      dd.appendChild(document.createTextNode(DAYS[u.d.getDay()]));
+      dd.appendChild(document.createElement('br'));
+      dd.appendChild(document.createTextNode(('0' + u.d.getDate()).slice(-2) + ' ' + MONS[u.d.getMonth()]));
+      var n = document.createElement('span');
+      n.className = 'ev__n';
+      n.textContent = u.ev.name;
+      var t = document.createElement('span');
+      t.className = 'ev__t';
+      t.textContent = u.ev.off ? 'Cancelled' : u.ev.type;
+      row.appendChild(dd); row.appendChild(n); row.appendChild(t);
+      cal.appendChild(row);
+    });
+  }
 
   function applyCalendar() {
     if (!cal) return;
     var today = new Date();
     today.setHours(0, 0, 0, 0);
+    if (!cal.__built) { buildHomeCal(today); cal.__built = true; }
     var rows = cal.querySelectorAll('[data-iso]');
     var marked = false;
 
@@ -327,12 +372,36 @@
       var rd = new Date(iso + 'T00:00:00');
       if (rd < today) {
         row.classList.add('ev--past');
+        if (t && !off) {
+          var done = document.createElement('span');
+          done.className = 'ev__done';
+          done.textContent = row.getAttribute('data-kind') === 'race' ? 'Raced' : 'Done';
+          t.insertBefore(done, t.firstChild);
+        }
       } else if (!marked && !off) {
         row.classList.add('ev--next');
         if (t) t.insertBefore(document.createTextNode('Next up · '), t.firstChild);
         marked = true;
       }
     }
+
+    // a month with nothing left in it says so in its heading
+    cal.querySelectorAll('.mon').forEach(function (m) {
+      var all = m.querySelectorAll('[data-iso]').length;
+      var gone = m.querySelectorAll('.ev--past').length;
+      var h = m.querySelector('.mon__h');
+      var tag = h && h.querySelector('.mon__done');
+      var over = all > 0 && gone === all;
+      m.classList.toggle('mon--done', over);
+      if (over && h && !tag) {
+        tag = document.createElement('span');
+        tag.className = 'ev__done mon__done';
+        tag.textContent = 'Completed';
+        h.appendChild(tag);
+      } else if (!over && tag) {
+        tag.parentNode.removeChild(tag);
+      }
+    });
   }
 
   function applyAll() {
@@ -506,7 +575,10 @@
     var hits = fig.querySelectorAll('.trk-hit');
 
     function select(s) {
-      var same = fig.getAttribute('data-active') === s;
+      // compare with what is pinned, not data-active: hovering has already
+      // set that, and would turn every click into an unpin
+      var pinned = fig.querySelector('.secbtn[aria-pressed="true"]');
+      var same = pinned && pinned.getAttribute('data-s') === s;
       if (same || !s) { fig.removeAttribute('data-active'); s = null; }
       else fig.setAttribute('data-active', s);
       btns.forEach(function (b) {
@@ -517,17 +589,25 @@
     btns.forEach(function (b) {
       b.addEventListener('click', function () { select(b.getAttribute('data-s')); });
     });
+    // hovering the map or a card previews that sector in both; leaving
+    // falls back to whatever has been pinned by a click, if anything
+    function preview(s) { fig.setAttribute('data-active', s); }
+    function restore() {
+      var pinned = fig.querySelector('.secbtn[aria-pressed="true"]');
+      if (pinned) fig.setAttribute('data-active', pinned.getAttribute('data-s'));
+      else fig.removeAttribute('data-active');
+    }
+
     hits.forEach(function (h) {
       h.addEventListener('click', function () { select(h.getAttribute('data-s')); });
-      h.addEventListener('mouseenter', function () {
-        fig.setAttribute('data-active', h.getAttribute('data-s'));
-      });
-      h.addEventListener('mouseleave', function () {
-        // fall back to whatever the buttons have pinned, if anything
-        var pinned = fig.querySelector('.secbtn[aria-pressed="true"]');
-        if (pinned) fig.setAttribute('data-active', pinned.getAttribute('data-s'));
-        else fig.removeAttribute('data-active');
-      });
+      h.addEventListener('mouseenter', function () { preview(h.getAttribute('data-s')); });
+      h.addEventListener('mouseleave', restore);
+    });
+    btns.forEach(function (b) {
+      b.addEventListener('mouseenter', function () { preview(b.getAttribute('data-s')); });
+      b.addEventListener('mouseleave', restore);
+      b.addEventListener('focus', function () { preview(b.getAttribute('data-s')); });
+      b.addEventListener('blur', restore);
     });
   });
 

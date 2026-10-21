@@ -5,15 +5,15 @@
    something replaces the cache and one that did not leaves it alone. */
 'use strict';
 
-var CACHE = 'fekc-4e00969385a3';
+var CACHE = 'fekc-bb8087b8e22e';
 var SHELL = [
   "/",
   "index.html",
-  "assets/css/main.css?v=20261021-3",
-  "assets/css/fonts.css?v=20261021-3",
-  "assets/js/main.js?v=20261021-3",
+  "assets/css/main.css?v=20261021-4",
+  "assets/css/fonts.css?v=20261021-4",
+  "assets/js/main.js?v=20261021-4",
   "assets/img/logo-light.png",
-  "assets/img/logo.png"
+  "assets/img/logo-white.webp"
 ];      // must all cache, or the install fails
 var REST  = [
   "start.html",
@@ -31,7 +31,7 @@ var REST  = [
   "contact.html",
   "404.html",
   "site.webmanifest",
-  "assets/img/logo.webp",
+  "assets/img/logo-white.png",
   "assets/img/favicon.png",
   "assets/fonts/semakin-regular.otf",
   "assets/fonts/archivo-italic-700to800-latin.woff2",

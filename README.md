@@ -11,7 +11,7 @@ Light paddock and forest greens, with the racing look kept:
 - **Motorsport details:** Semakin headlines (Archivo as fallback), IBM Plex Mono for times and countdowns, slanted photo panels with a kerb along the cut.
 - **Signals:** club red for the logo, race days and the selected sector. Hi-vis amber still means *live* or *next on track*.
 
-All colours are CSS variables at the top of `assets/css/main.css`. The header uses `assets/img/logo-light.png`, which is the club logo with its white circuit outline recoloured pine so it shows on the light header. The footer keeps the original `logo.png` on dark green.
+All colours are CSS variables at the top of `assets/css/main.css`. The header uses `assets/img/logo-light.png`, which is the club logo with its white circuit outline recoloured pine so it shows on the light header. The footer uses `assets/img/logo-white.webp` (PNG fallback `logo-white.png`), an all-white version of the logo on dark green.
 
 ## Fonts
 
@@ -21,7 +21,7 @@ Headings use **Semakin** (© Drizy Studio 2022), self-hosted at `assets/fonts/se
 
 Upload everything **except** `archive/` and `README.md` to the web root.
 
-The stylesheet and script are linked with `?v=20261021-3`. When you change `main.css` or `main.js`, bump that value in every page and in `sw.js` (`SHELL`, plus the `CACHE` name). Otherwise the service worker, which serves styles and scripts cache-first, can keep showing visitors the old files.
+The stylesheet and script are linked with `?v=20261021-4`. When you change `main.css` or `main.js`, bump that value in every page and in `sw.js` (`SHELL`, plus the `CACHE` name). Otherwise the service worker, which serves styles and scripts cache-first, can keep showing visitors the old files.
 
 ## Rebuilding with build.py
 
