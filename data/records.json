@@ -1,0 +1,129 @@
+{
+  "circuit": "Forest Edge",
+  "note": "Class lap records as posted at race control. Includes guest and historic classes that the club no longer runs as championship classes.",
+  "records": [
+    {
+      "class": "Honda Cadet 200",
+      "tyre": "Vega Cadetti 'UK'",
+      "seconds": 46.76,
+      "time": "46.76",
+      "driver": "Max Skilton",
+      "date": "2026-08-02"
+    },
+    {
+      "class": "Rotax Cadet",
+      "tyre": "Vega Cadetti 'UK'",
+      "seconds": 46.18,
+      "time": "46.18",
+      "driver": "Jonny Butterfill",
+      "date": "2026-04-05"
+    },
+    {
+      "class": "Rotax Inter",
+      "tyre": "Mojo C2 CIK",
+      "seconds": 43.03,
+      "time": "43.03",
+      "driver": "Jack Daniels",
+      "date": "2026-08-02"
+    },
+    {
+      "class": "Junior Rotax",
+      "tyre": "Mojo D2XX 'CIK'",
+      "seconds": 40.42,
+      "time": "40.42",
+      "driver": "Jesse Whitmore",
+      "date": "2026-08-02"
+    },
+    {
+      "class": "Senior Rotax",
+      "tyre": "Mojo D5 'CIK'",
+      "seconds": 39.23,
+      "time": "39.23",
+      "driver": "William Elswood",
+      "date": "2022-04-03"
+    },
+    {
+      "class": "177 Rotax",
+      "tyre": "Maxxis Sport",
+      "seconds": 41.15,
+      "time": "41.15",
+      "driver": "Luc Oliver",
+      "date": "2025-04-06"
+    },
+    {
+      "class": "177 Rotax",
+      "tyre": "Mojo D5 'CIK'",
+      "seconds": 40.27,
+      "time": "40.27",
+      "driver": "Michael Cheek",
+      "date": "2022-04-03"
+    },
+    {
+      "class": "177 Rotax Masters",
+      "tyre": "Mojo D5 'CIK'",
+      "seconds": 40.45,
+      "time": "40.45",
+      "driver": "Colin Davis",
+      "date": "2022-04-03"
+    },
+    {
+      "class": "125 KZ",
+      "tyre": null,
+      "seconds": 36.64,
+      "time": "36.64",
+      "driver": "Milo Manderson",
+      "date": "2026-05-03"
+    },
+    {
+      "class": "Superkart Open",
+      "tyre": "Vega XH4",
+      "seconds": 36.5,
+      "time": "36.50",
+      "driver": "Matt Allnut",
+      "date": "2025-03-02"
+    },
+    {
+      "class": "Superkart Limited",
+      "tyre": "Vega XH4",
+      "seconds": 37.21,
+      "time": "37.21",
+      "driver": "Matt Allnutt",
+      "date": "2026-03-01"
+    },
+    {
+      "class": "250 Gearbox Super 4",
+      "tyre": null,
+      "seconds": 36.66,
+      "time": "36.66",
+      "driver": "Matt Allnutt",
+      "date": "2026-05-03"
+    },
+    {
+      "class": "FP4",
+      "tyre": null,
+      "seconds": 46.26,
+      "time": "46.26",
+      "driver": "Angus Waddell",
+      "date": "2025-07-06"
+    },
+    {
+      "class": "SP4",
+      "tyre": null,
+      "seconds": 43.24,
+      "time": "43.24",
+      "driver": "Lionel Sifleet",
+      "date": "2023-08-06"
+    },
+    {
+      "class": "210 National",
+      "tyre": null,
+      "seconds": 41.67,
+      "time": "41.67",
+      "driver": "Harry Morris",
+      "date": "2026-08-02"
+    }
+  ],
+  "updated": "2026-08-23",
+  "source": "https://fekc.co.uk/data.html",
+  "publisher": "Forest Edge Kart Club"
+}

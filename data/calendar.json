@@ -1,0 +1,271 @@
+{
+  "season": 2026,
+  "timezone": "Europe/London",
+  "subscribe": "https://fekc.co.uk/fekc-2026.ics",
+  "events": [
+    {
+      "date": "2026-01-31",
+      "weekday": "Saturday",
+      "name": "2025 Championship Awards Evening & Dinner Dance",
+      "type": "Social",
+      "kind": "social",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-02-14",
+      "weekday": "Saturday",
+      "name": "Pre-Season Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-02-28",
+      "weekday": "Saturday",
+      "name": "Round 1 Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-03-01",
+      "weekday": "Sunday",
+      "name": "Round 1 Race Day",
+      "type": "Race day",
+      "kind": "race",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-03-14",
+      "weekday": "Saturday",
+      "name": "Mid-Month Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-04-04",
+      "weekday": "Saturday",
+      "name": "Round 2 Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-04-05",
+      "weekday": "Sunday",
+      "name": "Round 2 Race Day",
+      "type": "Race day",
+      "kind": "race",
+      "cancelled": false,
+      "note": "Easter Sunday"
+    },
+    {
+      "date": "2026-04-18",
+      "weekday": "Saturday",
+      "name": "Mid-Month Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-05-02",
+      "weekday": "Saturday",
+      "name": "Round 3 Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-05-03",
+      "weekday": "Sunday",
+      "name": "Round 3 Race Day",
+      "type": "Race day",
+      "kind": "race",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-05-16",
+      "weekday": "Saturday",
+      "name": "Mid-Month Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-06-06",
+      "weekday": "Saturday",
+      "name": "Round 4 Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-06-07",
+      "weekday": "Sunday",
+      "name": "Round 4 Race Day",
+      "type": "Race day",
+      "kind": "race",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-06-20",
+      "weekday": "Saturday",
+      "name": "Mid-Month Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-07-04",
+      "weekday": "Saturday",
+      "name": "Round 5 Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-07-05",
+      "weekday": "Sunday",
+      "name": "Round 5 Race Day & NKF S4 250",
+      "type": "Race day",
+      "kind": "race",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-07-18",
+      "weekday": "Saturday",
+      "name": "Mid-Month Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-08-01",
+      "weekday": "Saturday",
+      "name": "Round 6 Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-08-02",
+      "weekday": "Sunday",
+      "name": "Round 6 Race Day & 210 Gearbox",
+      "type": "Race day",
+      "kind": "race",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-08-15",
+      "weekday": "Saturday",
+      "name": "Mid-Month Practice",
+      "type": "Cancelled: track repairs",
+      "kind": "practice",
+      "cancelled": true,
+      "note": null
+    },
+    {
+      "date": "2026-09-04",
+      "weekday": "Friday",
+      "name": "Round 7 Practice, Southern Championships",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": "Practice is on the Friday this round, not the Saturday"
+    },
+    {
+      "date": "2026-09-05",
+      "weekday": "Saturday",
+      "name": "Southern Championships",
+      "type": "Championship",
+      "kind": "race",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-09-06",
+      "weekday": "Sunday",
+      "name": "Round 7 Race Day",
+      "type": "Race day",
+      "kind": "race",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-09-19",
+      "weekday": "Saturday",
+      "name": "Mid-Month Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-10-03",
+      "weekday": "Saturday",
+      "name": "Round 8 Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-10-04",
+      "weekday": "Sunday",
+      "name": "Round 8 Race Day & FP4",
+      "type": "Race day",
+      "kind": "race",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-10-17",
+      "weekday": "Saturday",
+      "name": "Mid-Month Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-10-31",
+      "weekday": "Saturday",
+      "name": "Round 9 Practice",
+      "type": "Practice",
+      "kind": "practice",
+      "cancelled": false,
+      "note": null
+    },
+    {
+      "date": "2026-11-01",
+      "weekday": "Sunday",
+      "name": "Round 9 Race Day",
+      "type": "Race day",
+      "kind": "race",
+      "cancelled": false,
+      "note": null
+    }
+  ],
+  "updated": "2026-08-23",
+  "source": "https://fekc.co.uk/data.html",
+  "publisher": "Forest Edge Kart Club"
+}

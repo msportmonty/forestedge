@@ -1,0 +1,73 @@
+{
+  "note": "Championship classes run to the current Motorsport UK Karting Yearbook. Practice groups include pre-ARKS sessions, which need no licence.",
+  "championship": [
+    "Honda Cadet",
+    "Rotax Cadet",
+    "Rotax Inter",
+    "Junior Rotax",
+    "Senior Rotax",
+    "177 Rotax",
+    "177 Masters",
+    "KZ2",
+    "Superkart",
+    "250 Mono"
+  ],
+  "practice_groups": [
+    "Pre-ARKS Bambino & Cadet",
+    "Rotax Cadet (MicroMAX)",
+    "Rotax Inter (InterMAX)",
+    "Pre-ARKS Junior & Senior",
+    "Junior Rotax (JuniorMAX)",
+    "Senior Rotax (SeniorMAX)",
+    "177 MAX & Masters",
+    "KZ",
+    "Superkarts"
+  ],
+  "fees": [
+    {
+      "item": "Race day",
+      "qualifier": "Member",
+      "price_gbp": 65.0,
+      "note": "Non-member £75"
+    },
+    {
+      "item": "Practice day",
+      "qualifier": "Member",
+      "price_gbp": 60.0,
+      "note": "Non-member £70"
+    },
+    {
+      "item": "Annual membership",
+      "qualifier": null,
+      "price_gbp": 70.0,
+      "note": "Per season"
+    },
+    {
+      "item": "Extra family member",
+      "qualifier": null,
+      "price_gbp": 50.0,
+      "note": "Per person"
+    },
+    {
+      "item": "Reserved pit space",
+      "qualifier": null,
+      "price_gbp": 100.0,
+      "note": "Per season"
+    },
+    {
+      "item": "Transponder hire",
+      "qualifier": null,
+      "price_gbp": 15.0,
+      "note": "Per weekend"
+    },
+    {
+      "item": "Electric hook-up",
+      "qualifier": null,
+      "price_gbp": 20.0,
+      "note": "Per weekend"
+    }
+  ],
+  "updated": "2026-08-23",
+  "source": "https://fekc.co.uk/data.html",
+  "publisher": "Forest Edge Kart Club"
+}
