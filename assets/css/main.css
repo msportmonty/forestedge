@@ -3,7 +3,7 @@
    Light paddock, forest greens. Pages sit on an off-white "paper" with sage
    lines and soft shadows; pine green carries headings, buttons and the
    structural bands. The racing language stays: Archivo italic headlines,
-   mono timing, kerb stripes and chequers. Club red is kept for the logo,
+   mono timing and slanted photo panels with a kerb along the cut. Club red is kept for the logo,
    race days and the highlighted sector; hi-vis amber still means "live".
    ========================================================================== */
 /* Semakin (Drizy Studio) for display type. It ships one weight with the
@@ -56,7 +56,6 @@
   /* racing furniture */
   --kerb:repeating-linear-gradient(90deg,var(--pine) 0 16px,#fff 16px 32px);
   --kerb-v:repeating-linear-gradient(180deg,var(--pine) 0 22px,#fff 22px 44px);
-  --chk:conic-gradient(var(--pine) 0 25%,#fff 0 50%,var(--pine) 0 75%,#fff 0) 0 0/10px 10px;
 
   --display:"Semakin","Archivo","Arial Narrow",system-ui,sans-serif;
   --body:"Barlow","Barlow Fallback",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -144,8 +143,6 @@ main p a:not(.btn):hover,main li a:not(.btn):hover,
   backdrop-filter:saturate(1.3) blur(14px);-webkit-backdrop-filter:saturate(1.3) blur(14px);
   box-shadow:0 1px 0 var(--line),0 10px 30px -24px rgba(20,35,26,.4);
 }
-/* a strip of kerb under the header: the one bit of the circuit on every page */
-.hdr::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;background:var(--kerb);opacity:.9}
 .hdr__in{display:flex;align-items:center;gap:.9rem;width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gap)}
 .brand{display:flex;align-items:center;flex:0 0 auto;margin-right:auto}
 .brand img{height:clamp(30px,8.6vw,38px);width:auto}
@@ -185,7 +182,7 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45de
 
 /* ---------- mobile menu ---------- */
 .menu{
-  position:fixed;inset:calc(var(--hdr) + 3px) 0 0;z-index:99;background:var(--paper);
+  position:fixed;inset:var(--hdr) 0 0;z-index:99;background:var(--paper);
   overflow-y:auto;overscroll-behavior:contain;
   opacity:0;visibility:hidden;transform:translateY(-8px);
   transition:opacity .26s var(--ease),transform .26s var(--ease),visibility .26s;
@@ -234,7 +231,7 @@ body.menu-open .menu{opacity:1;visibility:visible;transform:none}
 main>.sec:nth-child(even of .sec){background:var(--paper-2)}
 .shd{font-size:clamp(1.6rem,4.8vw,2.3rem);margin-bottom:clamp(1.4rem,4vw,2.2rem)}
 .shd--rule{position:relative;padding-bottom:.9rem;border-bottom:1px solid var(--line)}
-.shd--rule::after{content:"";position:absolute;left:0;bottom:-2px;width:72px;height:4px;background:var(--kerb)}
+.shd--rule::after{content:"";position:absolute;left:0;bottom:-2px;width:56px;height:3px;border-radius:2px;background:var(--hunter)}
 .hd{display:grid;gap:.9rem;margin-bottom:clamp(1.6rem,5vw,2.6rem)}
 .hd .lead{margin:0}
 
@@ -270,7 +267,7 @@ main>.sec:nth-child(even of .sec){background:var(--paper-2)}
   border:1px solid var(--line);border-radius:var(--r-lg);
   padding:1.4rem 1.3rem 1.2rem;max-width:33rem;box-shadow:var(--shadow);overflow:hidden;
 }
-.board::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--chk)}
+.board::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--pine)}
 .board__top{
   display:flex;justify-content:space-between;align-items:center;gap:1rem;
   padding-bottom:.75rem;border-bottom:1px solid var(--line);
@@ -303,13 +300,12 @@ main>.sec:nth-child(even of .sec){background:var(--paper-2)}
 }
 .board__go:hover{color:var(--pine);border-color:var(--pine)}
 
-/* ---------- stat rail: a timing strip with a kerb on top ---------- */
+/* ---------- stat rail: a timing strip ---------- */
 .rail{
   position:relative;display:grid;grid-template-columns:repeat(2,1fr);
   background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
-  box-shadow:var(--shadow-sm);overflow:hidden;padding-top:5px;
+  box-shadow:var(--shadow-sm);overflow:hidden;
 }
-.rail::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--kerb)}
 .rail>div{padding:1.25rem 1.2rem;border-color:var(--line);border-style:solid;border-width:0}
 .rail>div:nth-child(odd){border-right-width:1px}
 .rail>div:nth-child(-n+2){border-bottom-width:1px}
@@ -382,10 +378,9 @@ main>.sec:nth-child(even of .sec){background:var(--paper-2)}
 /* the lap record: a pine timing board */
 .recbar{
   position:relative;display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem .8rem;
-  margin-top:.6rem;padding:1.3rem 1.2rem 1.1rem;overflow:hidden;
+  margin-top:.6rem;padding:1.1rem 1.2rem;overflow:hidden;
   background:var(--pine);color:var(--on-dark);border-radius:var(--r);box-shadow:var(--shadow);
 }
-.recbar::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--chk);opacity:.9}
 .recbar .lab{flex:1 0 100%;color:var(--on-dark-2)}
 .recbar__t{font:600 1.7rem/1 var(--mono);color:var(--lime);font-variant-numeric:tabular-nums}
 .recbar__t i{font:500 .84rem/1 var(--body);font-style:normal;color:var(--on-dark-2);margin-left:.12rem}
@@ -462,12 +457,9 @@ main>.sec:nth-child(even of .sec){background:var(--paper-2)}
 a.card:hover{border-color:var(--line-2);transform:translateY(-4px);box-shadow:var(--shadow)}
 .card__img{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--paper-2)}
 .card__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
-.card__img::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--kerb)}
 a.card:hover .card__img img{transform:scale(1.045)}
 .card__b{padding:1.25rem 1.25rem 1.4rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
 .card__b p{color:var(--mute);font-size:.95rem;flex:1;margin:0}
-.card--doc{padding-left:6px}
-.card--doc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--kerb-v)}
 /* Document names are long single words ("SUPPLEMENTARY") in a wide-set display
    face inside a narrow card, so they get a smaller size than a section heading,
    and a break as a last resort rather than spilling out of the card. */
@@ -604,7 +596,6 @@ a.card:hover .card__go{color:var(--pine);gap:.65rem}
 
 /* ---------- media band: the deep-green anchor between light sections ---------- */
 .band{position:relative;isolation:isolate;overflow:hidden;background:var(--pine-2);color:var(--on-dark)}
-.band::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--kerb);z-index:1}
 .band__bg{position:absolute;inset:0;z-index:-2}
 .band__bg img{width:100%;height:100%;object-fit:cover}
 .band__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(23,48,34,.97) 0%,rgba(23,48,34,.9) 55%,rgba(23,48,34,.78)),linear-gradient(180deg,rgba(23,48,34,.3),rgba(23,48,34,.6))}
@@ -685,7 +676,6 @@ a.card:hover .card__go{color:var(--pine);gap:.65rem}
 
 /* ---------- footer: pine, with the original logo back on a dark ground ---------- */
 .ft{position:relative;background:var(--pine-2);color:var(--on-dark);padding-block:clamp(3.2rem,8vw,4.4rem) 1.6rem}
-.ft::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--kerb)}
 .ft__top{display:grid;gap:2.4rem;padding-bottom:2.2rem}
 .ft__brand img{height:46px;width:auto;margin-bottom:1.2rem}
 .ft__brand p{color:var(--on-dark-2);font-size:.96rem;max-width:38ch;margin-bottom:1.15rem}
@@ -821,8 +811,7 @@ a.card:hover .card__go{color:var(--pine);gap:.65rem}
     background:transparent!important;box-shadow:none!important;
     text-shadow:none!important;transition:none!important;animation:none!important;
   }
-  .hdr::after,.rail::before,.board::before,.recbar::before,.band::before,.ft::before,
-  .shd--rule::after,.card__img::after,.card--doc::before,.panel--red::before{display:none!important}
+  .board::before,.shd--rule::after,.panel--red::before{display:none!important}
   html,body{background:#fff!important;color:#000!important;font-size:11pt}
   body{overflow-x:visible}
   .hdr,.menu,.burger,.skip,.notice,.calpick,.ft__cols,.ft__rules,.ft__by,

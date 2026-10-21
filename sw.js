@@ -5,13 +5,13 @@
    something replaces the cache and one that did not leaves it alone. */
 'use strict';
 
-var CACHE = 'fekc-294624220517';
+var CACHE = 'fekc-4e00969385a3';
 var SHELL = [
   "/",
   "index.html",
-  "assets/css/main.css?v=20261021-2",
-  "assets/css/fonts.css?v=20261021-2",
-  "assets/js/main.js?v=20261021-2",
+  "assets/css/main.css?v=20261021-3",
+  "assets/css/fonts.css?v=20261021-3",
+  "assets/js/main.js?v=20261021-3",
   "assets/img/logo-light.png",
   "assets/img/logo.png"
 ];      // must all cache, or the install fails
