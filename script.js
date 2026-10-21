@@ -26,6 +26,15 @@
     const decimals = parseInt(el.dataset.decimals || "0", 10);
     const fmt = (v) => v.toLocaleString("en-GB", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
     if (reduceMotion) { el.textContent = fmt(target); return; }
+    // Lock the width to the final value so the unit beside it doesn't shift while counting
+    // (digits aren't equal width in this face, so reserve room for the widest)
+    const final = fmt(target);
+    const widths = [..."0123456789"].map((d) => {
+      el.textContent = final.replace(/\d/g, d);
+      return el.getBoundingClientRect().width;
+    });
+    el.style.width = `${Math.ceil(Math.max(...widths))}px`;
+    el.textContent = fmt(0);
     const start = performance.now();
     const dur = 1600;
     const tick = (now) => {
@@ -65,14 +74,37 @@
 
   // Fleet switcher
   const karts = {
-    cadet: { name: "Cadet 120", num: "08", color: "#ff5a36", engine: "120cc 4-stroke", power: "4 hp", speed: "55 km/h", age: "8 – 12",
+    cadet: { name: "Cadet 120", num: "08", color: "#b5612f", engine: "120cc 4-stroke", power: "4 hp", speed: "55 km/h", age: "8 – 12",
       desc: "Lightweight and forgiving — the perfect first step for younger drivers in the Junior Academy." },
-    sport: { name: "Sport 270", num: "27", color: "#2fe39a", engine: "270cc 4-stroke", power: "9 hp", speed: "75 km/h", age: "12+",
+    sport: { name: "Sport 270", num: "27", color: "#5e8f4e", engine: "270cc 4-stroke", power: "9 hp", speed: "75 km/h", age: "12+",
       desc: "Our arrive-and-drive workhorse. Punchy, predictable and matched to within a tenth across the fleet." },
-    pro: { name: "Pro 390", num: "01", color: "#c6ff3d", engine: "390cc 4-stroke", power: "13 hp", speed: "98 km/h", age: "16+ / licensed",
+    pro: { name: "Pro 390", num: "01", color: "#1f3d2b", engine: "390cc 4-stroke", power: "13 hp", speed: "98 km/h", age: "16+ / licensed",
       desc: "Sharp, stiff and seriously quick. Reserved for championship classes and experienced drivers." },
   };
   const panel = $("#kart-panel");
+  const info = $(".kart__info", panel);
+  const fill = (k) => {
+    $("#kart-name").textContent = k.name;
+    $("#kart-desc").textContent = k.desc;
+    $("#kart-engine").textContent = k.engine;
+    $("#kart-power").textContent = k.power;
+    $("#kart-speed").textContent = k.speed;
+    $("#kart-age").textContent = k.age;
+    $("#kart-num").textContent = k.num;
+  };
+  // Reserve the tallest kart's height so switching classes never moves the page.
+  // All three are measured within one frame, so nothing flashes on screen.
+  let current = karts.cadet;
+  const reserve = () => {
+    info.style.minHeight = "";
+    const tallest = Math.max(...Object.values(karts).map((k) => { fill(k); return info.offsetHeight; }));
+    fill(current);
+    info.style.minHeight = `${tallest}px`;
+  };
+  reserve();
+  let resizeTimer;
+  addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(reserve, 150); });
+  document.fonts?.ready.then(reserve);
   $$(".fleet button").forEach((btn) => {
     btn.addEventListener("click", () => {
       const k = karts[btn.dataset.kart];
@@ -80,14 +112,9 @@
       panel.classList.remove("is-switching");
       void panel.offsetWidth;
       panel.classList.add("is-switching");
+      current = k;
       setTimeout(() => {
-        $("#kart-name").textContent = k.name;
-        $("#kart-desc").textContent = k.desc;
-        $("#kart-engine").textContent = k.engine;
-        $("#kart-power").textContent = k.power;
-        $("#kart-speed").textContent = k.speed;
-        $("#kart-age").textContent = k.age;
-        $("#kart-num").textContent = k.num;
+        fill(k);
         panel.style.setProperty("--kart-color", k.color);
       }, reduceMotion ? 0 : 280);
     });
@@ -115,7 +142,10 @@
       </tr>`).join("");
   };
   $$(".chip").forEach((chip) => chip.addEventListener("click", () => {
-    $$(".chip").forEach((c) => c.classList.toggle("is-active", c === chip));
+    $$(".chip").forEach((c) => {
+      c.classList.toggle("is-active", c === chip);
+      c.setAttribute("aria-pressed", String(c === chip));
+    });
     render(chip.dataset.filter);
   }));
   render("all");

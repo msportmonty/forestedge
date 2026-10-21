@@ -2,6 +2,12 @@
 
 A modern, responsive, single-page website for Forest Edge Kart Motorsport. Plain HTML, CSS and JavaScript with no build step and no dependencies.
 
+## Design
+
+A light "forest" theme: off-white (`#f7f9f6`) and cream surfaces, pine and hunter greens for headings, buttons and anchors, and sage tints for borders, hover states and card backgrounds. Headings are set in **Fraunces** (serif) and body text in **Manrope**. Both are open-licensed and self-hosted in `assets/fonts/`, so the site makes no third-party font requests. All colours are CSS variables at the top of `styles.css`.
+
+Every text/background pairing meets WCAG AA contrast (4.5:1 for body text). The page has no layout shift: the leaderboard, kart panel and stat counters reserve their space before content changes.
+
 ## Run locally
 
 Open `index.html` in a browser, or serve the folder:
